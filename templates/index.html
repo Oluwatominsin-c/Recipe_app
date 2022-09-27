@@ -1,0 +1,26 @@
+{% extends "layout.html" %}
+<!--  -->
+{% block content %}
+
+<h1>Recipes</h1>
+
+{% for recipe in recipes reversed %}
+<div class="card" style="width: 18rem">
+  <img src="{{recipe.image.url}}" class="card-img-top" alt="{{recipe.name}}" />
+  <div class="card-body">
+    <h5 class="card-title">{{recipe.name}}</h5>
+    <p class="card-text">{{recipe.description}}</p>
+    <span>{{recipe.price}}</span>
+    <a href="{{recipe.image.url}}" class="btn btn-primary">View Recipe</a>
+  </div>
+</div>
+<br />
+{% endfor %}
+
+<!-- <div>
+  <h2></h2>
+  <p><strong>Caption: </strong></p>
+  <img src="" alt="food" width="25%" />
+  <p><em>Price: </em></p>
+</div> -->
+{% endblock content %}

@@ -9,7 +9,7 @@ def home(request):
     context = {
         "recipes": recipes
     }
-    return render(request, "home.html", context)
+    return render(request, "index.html", context)
 
 def about(request):
     return render(request, "about.html")
