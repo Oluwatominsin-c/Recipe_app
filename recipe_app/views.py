@@ -6,7 +6,6 @@ from .models import Recipe
 
 def home(request):
     recipes = Recipe.objects.all()
-    print(recipes)
     context = {
         "recipes": recipes
     }
