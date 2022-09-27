@@ -5,16 +5,29 @@
 <h1>Recipes</h1>
 
 {% for recipe in recipes reversed %}
-<div class="card" style="width: 18rem">
-  <img src="{{recipe.image.url}}" class="card-img-top" alt="{{recipe.name}}" />
+<div
+  class="card"
+  style="
+    width: 13rem;
+    display: inline-flex;
+    margin: 15px;
+    padding: 10px;
+    height: 320px;
+  "
+>
+  <img
+    src="{{recipe.image.url}}"
+    class="card-img-top"
+    alt="{{recipe.name}}"
+    height="150px"
+  />
   <div class="card-body">
     <h5 class="card-title">{{recipe.name}}</h5>
-    <p class="card-text">{{recipe.description}}</p>
-    <span>{{recipe.price}}</span>
+    <!-- <p class="card-text">{{recipe.description}}</p> -->
+    <em>Price</em>:<span style="color: crimson"> N{{recipe.price}}</span><br />
     <a href="{{recipe.image.url}}" class="btn btn-primary">View Recipe</a>
   </div>
 </div>
-<br />
 {% endfor %}
 
 <!-- <div>
