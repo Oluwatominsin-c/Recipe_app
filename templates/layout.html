@@ -59,7 +59,7 @@
               aria-label="Search"
             />
             <button
-              class="btn btn-outline-success"
+              class="btn btn-outline-primary my-2 my-sm-0"
               type="submit"
               style="margin: 5px"
             >
@@ -75,13 +75,6 @@
           >
             Sign Up</a
           >
-          <a
-            href="login/"
-            class="btn btn-outline-primary my-2 my-sm-0"
-            type="submit"
-            style="margin: 5px"
-            >Login</a
-          >
         </div>
       </div>
     </nav>
@@ -93,6 +86,9 @@
       {% endfor %} {% endif %}
       <br />{% block content %} {% endblock content %}
     </div>
+    <p class="mt-5 mb-3 text-muted">
+      All Right Reserved Recipe App &copy; 2022
+    </p>
 
     <!-- optionlal scripts -->
     <script
