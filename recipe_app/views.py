@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 from .models import Recipe
+from django.shortcuts import redirect
 
 # Create your views here.
 

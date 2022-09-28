@@ -1,9 +1,11 @@
+{%load crispy_forms_tags %}
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Login</title>
+    <title>Sign Up</title>
 
     <!-- bootstrap CSS -->
     <link
@@ -18,30 +20,19 @@
       <div class="row">
         <div class="col-md-6 offset-md-3">
           <div class="signup-form">
-            <form action="" class="mt-5 border p-5 bg-light shadow">
-              <h4 class="mb-5 text-secondary">Login</h4>
-              <div class="mb-3 col-md-12">
-                <label for="">Email</label>
-                <input
-                  type="email"
-                  name="email"
-                  class="form-control"
-                  placeholder="Enter email"
-                  required
-                />
-              </div>
-              <div class="mb-3 col-md-12">
-                <label for="">Password</label>
-                <input
-                  type="password"
-                  name="password1"
-                  class="form-control"
-                  placeholder="********"
-                  required
-                />
-              </div>
+            <form
+              action=""
+              method="POST"
+              class="mt-5 border p-4 bg-light shadow"
+            >
+              {% csrf_token %}
+
+              <h4 class="mb-5 text-secondary">Create Your Account</h4>
+
+              {{ form|crispy }}
+
               <div class="col-md-12">
-                <button class="btn btn-primary float-end">Login</button>
+                <button class="btn btn-primary float-left">Signup</button>
               </div>
             </form>
             <p class="text-center mt-4 text-secondary">
