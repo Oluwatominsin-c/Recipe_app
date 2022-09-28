@@ -1,4 +1,6 @@
-{%load crispy_forms_tags %}
+{% extends "layout.html" %}
+<!--  -->
+{% block content %} {%load crispy_forms_tags %}
 
 <!DOCTYPE html>
 <html lang="en">
@@ -27,7 +29,7 @@
             >
               {% csrf_token %}
 
-              <h4 class="mb-5 text-secondary">Create Your Account</h4>
+              <h4 class="mb-4 text-secondary">Create Your Account</h4>
 
               {{ form | crispy }}
 
@@ -52,3 +54,4 @@
     ></script>
   </body>
 </html>
+{% endblock content %}

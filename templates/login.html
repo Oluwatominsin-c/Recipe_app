@@ -1,4 +1,6 @@
-{%load crispy_forms_tags %}
+{% extends "layout.html" %}
+<!--  -->
+{% block content %} {%load crispy_forms_tags %}
 
 <!DOCTYPE html>
 <html lang="en">
@@ -51,7 +53,7 @@
     ></script>
   </body>
 </html>
-
+{% endblock content %}
 <!-- {{ form.username }}
               <br />
               {{ form.password }}

@@ -51,6 +51,13 @@
               </a>
             </li>
           </ul>
+
+          {% if user.is_authenticated %}
+          <span style="margin-right: 1.25em; display: inline-block"
+            ><strong>Hello, {{ user.username }}</strong>
+          </span>
+          {% endif %}
+
           <form class="d-flex" role="search">
             <input
               class="form-control mr-sm-2"
@@ -67,6 +74,16 @@
             </button>
           </form>
 
+          {% if user.is_authenticated %}
+          <a
+            href="logout/"
+            class="btn btn-outline-danger my-2 my-sm-0 ml-3"
+            type="submit"
+            style="margin: 5px"
+          >
+            Logout</a
+          >
+          {% else %}
           <a
             href="signup/"
             class="btn btn-outline-danger my-2 my-sm-0 ml-3"
@@ -75,6 +92,7 @@
           >
             Sign Up</a
           >
+          {% endif %}
         </div>
       </div>
     </nav>
@@ -86,10 +104,6 @@
       {% endfor %} {% endif %}
       <br />{% block content %} {% endblock content %}
     </div>
-    <p class="mt-5 mb-3 text-muted">
-      All Right Reserved Recipe App &copy; 2022
-    </p>
-
     <!-- optionlal scripts -->
     <script
       src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"

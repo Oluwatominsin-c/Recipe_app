@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 from django.contrib.auth import authenticate, login
+from django.contrib.auth.models import User
 from django.shortcuts import redirect
 from django.contrib import messages
 from .forms import SignUpForm, UserCreationForm
@@ -25,7 +26,12 @@ def signup(request):
     return render(request, "signup.html", context)
 
 
-
+def profile(request):
+    user = request.user
+    context = {
+        "user": user
+    }
+    return render(request, "profile.html", context)
 
 
 
