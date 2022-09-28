@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Sign Up</title>
+    <title>Sign up</title>
 
     <!-- bootstrap CSS -->
     <link
@@ -23,16 +23,16 @@
             <form
               action=""
               method="POST"
-              class="mt-5 border p-4 bg-light shadow"
+              class="mt-5 border p-5 bg-light shadow"
             >
               {% csrf_token %}
 
               <h4 class="mb-5 text-secondary">Create Your Account</h4>
 
-              {{ form|crispy }}
+              {{ form | crispy }}
 
               <div class="col-md-12">
-                <button class="btn btn-primary float-left">Signup</button>
+                <button class="btn btn-primary float-end">Signup</button>
               </div>
             </form>
             <p class="text-center mt-4 text-secondary">
