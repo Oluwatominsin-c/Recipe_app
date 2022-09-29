@@ -1,4 +1,4 @@
-{% extends "layout.html" %}
+{% extends "recipe_app/layout.html" %}
 <!--  -->
 {% block content %} {%load crispy_forms_tags %}
 
@@ -7,18 +7,12 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Logout</title>
+    <title>Profile</title>
   </head>
   <body>
     <div class="col-md-6" style="margin: auto">
-      <p>You have successfully loggged out!</p>
-      <div class="border-top-3 pt-2">
-        You can
-        <a href="/login/" class="text-center mt-4 text-secondary"> login </a
-        >again
-      </div>
+      Welcome, {{ user.username }}
     </div>
-
-    {% endblock content %}
   </body>
 </html>
+{% endblock content %}

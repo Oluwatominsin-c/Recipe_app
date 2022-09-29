@@ -39,20 +39,23 @@
             <li class="nav-item">
               <a class="nav-link" href="about/">About</a>
             </li>
-            <li class="nav-item dropdown">
+            {% if user.is_authenticated %}
+
+            <li class="nav-item">
               <a
-                class="nav-link dropdown-toggle"
-                href="#"
+                class="nav-link"
+                href="/create-recipe/"
                 role="button"
-                data-bs-toggle="dropdown"
+                data-bs-toggle=""
                 aria-expanded="false"
               >
                 Add Recipe
               </a>
             </li>
+            {% endif %}
           </ul>
-
           {% if user.is_authenticated %}
+
           <span style="margin-right: 1.25em; display: inline-block"
             ><strong>Hello, {{ user.username }}</strong>
           </span>
@@ -76,7 +79,7 @@
 
           {% if user.is_authenticated %}
           <a
-            href="logout/"
+            href="/logout/"
             class="btn btn-outline-danger my-2 my-sm-0 ml-3"
             type="submit"
             style="margin: 5px"
@@ -85,7 +88,7 @@
           >
           {% else %}
           <a
-            href="signup/"
+            href="/signup/"
             class="btn btn-outline-danger my-2 my-sm-0 ml-3"
             type="submit"
             style="margin: 5px"

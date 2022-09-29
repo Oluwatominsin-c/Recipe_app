@@ -16,41 +16,42 @@ def home(request):
         "recipes": recipes,
         "user": user
     }
-    return render(request, "index.html", context)
+    return render(request, "recipe_app/index.html", context)
 
 def about(request):
-    return render(request, "about.html")
+    return render(request, "recipe_app/about.html")
 
 
-class RecipeDetail(DetailView):
+class RecipeDetailView(DetailView):
     model = Recipe
 
-class RecipeDelete(DeleteView, LoginRequiredMixin, UserPassesTestMixin):
+class RecipeDeleteView(DeleteView, LoginRequiredMixin, UserPassesTestMixin):
     model = Recipe
     success_url = "home"
 
     def test_func(self):
         recipe = self.get_object()
-        if self.request.user == recipe.owner:
-            return self.request.user
+        return self.request.user == recipe.owner
+             
 
-class RecipeUpdate(UpdateView, LoginRequiredMixin, UserPassesTestMixin):
+class RecipeUpdateView(UpdateView, LoginRequiredMixin, UserPassesTestMixin):
     model = Recipe
     fields = ["name", "description", "price", "image"]
 
     def test_func(self):
         recipe = self.get_object()
-        if self.request.user == recipe.owner:
-            return self.request.user
+        return self.request.user == recipe.owner
+            
 
     def form_valid(self, form):
-        if form.instance.owner == self.request.user:
-            return super().form_valid(form)
+        form.instance.owner = self.request.user
+        return super().form_valid(form)
 
-class RecipeCreate(CreateView, LoginRequiredMixin):
+class RecipeCreateView(CreateView, LoginRequiredMixin):
     model = Recipe
+    # success_url = "/" 
     fields = ["name", "description", "price", "image"]
 
     def form_valid(self, form):
-        if form.instance.owner == self.request.user:
-            return super().form_valid(form)
+        form.instance.owner = self.request.user
+        return super().form_valid(form)

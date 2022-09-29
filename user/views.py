@@ -23,7 +23,7 @@ def signup(request):
         "form": form,
     }
 
-    return render(request, "signup.html", context)
+    return render(request, "user/signup.html", context)
 
 
 def profile(request):
@@ -31,7 +31,7 @@ def profile(request):
     context = {
         "user": user
     }
-    return render(request, "profile.html", context)
+    return render(request, "user/profile.html", context)
 
 
 

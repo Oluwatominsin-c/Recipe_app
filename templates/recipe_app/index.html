@@ -1,0 +1,38 @@
+{% extends "recipe_app/layout.html" %}
+<!--  -->
+{% block content %}
+
+<h2>Enjoy your meal with our recipe app!</h2>
+
+{% for recipe in recipes reversed %}
+<div
+  class="card shadow"
+  style="
+    width: 13rem;
+    display: inline-flex;
+    margin: 15px;
+    padding: 10px;
+    height: 300px;
+  "
+>
+  <img
+    src="{{recipe.image.url}}"
+    class="card-img-top"
+    alt="{{recipe.name}}"
+    height="150px"
+  />
+  <div class="card-body" style="text-align: center">
+    <h5 class="card-title">{{recipe.name}}</h5>
+    <!-- <p class="card-text">{{recipe.description}}</p> -->
+    <em>Price</em>:<span style="color: crimson"> N{{recipe.price}}</span><br />
+    <a href="recipe/{{recipe.pk}}" class="btn btn-primary">View Recipe</a>
+  </div>
+</div>
+{% endfor %} {% endblock content %}
+
+<!-- <div>
+  <h2></h2>
+  <p><strong>Caption: </strong></p>
+  <img src="" alt="food" width="25%" />
+  <p><em>Price: </em></p>
+</div> -->

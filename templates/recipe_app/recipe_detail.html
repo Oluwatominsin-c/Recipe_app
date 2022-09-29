@@ -1,18 +1,16 @@
-{% extends "layout.html" %}
+{% extends "recipe_app/layout.html" %}
 <!--  -->
 {% block content %}
 
-<h2>Enjoy your meal with our recipe app!</h2>
-
-{% for recipe in recipes reversed %}
+<h2>{{ recipe.name }}</h2>
 <div
-  class="card"
+  class="card shadow"
   style="
     width: 13rem;
     display: inline-flex;
     margin: 15px;
     padding: 10px;
-    height: 300px;
+    height: auto;
   "
 >
   <img
@@ -23,17 +21,14 @@
   />
   <div class="card-body" style="text-align: center">
     <h5 class="card-title">{{recipe.name}}</h5>
-    <!-- <p class="card-text">{{recipe.description}}</p> -->
+    <p>{{ recipe.description }}</p>
     <em>Price</em>:<span style="color: crimson"> N{{recipe.price}}</span><br />
-    <a href="{{recipe.image.url}}" class="btn btn-primary">View Recipe</a>
   </div>
 </div>
-{% endfor %}
-
-<!-- <div>
-  <h2></h2>
-  <p><strong>Caption: </strong></p>
-  <img src="" alt="food" width="25%" />
-  <p><em>Price: </em></p>
-</div> -->
+<br />
+<hr />
+<div class="m-2">
+  <a href="recipe/{{recipe.pk}}" class="btn btn-primary">Update Recipe</a>
+  <a href="recipe/{{recipe.pk}}" class="btn btn-danger">Delete Recipe</a>
+</div>
 {% endblock content %}

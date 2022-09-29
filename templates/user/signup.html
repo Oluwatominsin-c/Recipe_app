@@ -1,0 +1,57 @@
+{% extends "recipe_app/layout.html" %}
+<!--  -->
+{% block content %} {%load crispy_forms_tags %}
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Sign up</title>
+
+    <!-- bootstrap CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT"
+      crossorigin="anonymous"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6 offset-md-3">
+          <div class="signup-form">
+            <form
+              action=""
+              method="POST"
+              class="mt-5 border p-5 bg-light shadow"
+            >
+              {% csrf_token %}
+
+              <h4 class="mb-4 text-secondary">Create Your Account</h4>
+
+              {{ form | crispy }}
+
+              <div class="col-md-12">
+                <button class="btn btn-primary float-end">Signup</button>
+              </div>
+            </form>
+            <p class="text-center mt-4 text-secondary">
+              Already a member?
+              <a href="/login/">Login</a>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- bootstrap JS -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>
+{% endblock content %}
