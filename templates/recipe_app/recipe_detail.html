@@ -26,6 +26,7 @@
 </div>
 <br />
 <hr />
+{% if object.owner == user %}
 <div class="m-2">
   <a href="/update-recipe/{{recipe.pk}}" class="btn btn-primary"
     >Update Recipe</a
@@ -34,4 +35,4 @@
     >Delete Recipe</a
   >
 </div>
-{% endblock content %}
+{% endif %} {% endblock content %}
