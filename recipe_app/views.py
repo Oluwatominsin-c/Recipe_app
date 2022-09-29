@@ -27,7 +27,7 @@ class RecipeDetailView(DetailView):
 
 class RecipeDeleteView(DeleteView, LoginRequiredMixin, UserPassesTestMixin):
     model = Recipe
-    success_url = "home"
+    success_url = "/"
 
     def test_func(self):
         recipe = self.get_object()

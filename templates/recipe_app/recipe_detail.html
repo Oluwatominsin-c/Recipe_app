@@ -20,7 +20,6 @@
     height="150px"
   />
   <div class="card-body" style="text-align: center">
-    <h5 class="card-title">{{recipe.name}}</h5>
     <p>{{ recipe.description }}</p>
     <em>Price</em>:<span style="color: crimson"> N{{recipe.price}}</span><br />
   </div>
@@ -28,7 +27,11 @@
 <br />
 <hr />
 <div class="m-2">
-  <a href="recipe/{{recipe.pk}}" class="btn btn-primary">Update Recipe</a>
-  <a href="recipe/{{recipe.pk}}" class="btn btn-danger">Delete Recipe</a>
+  <a href="/update-recipe/{{recipe.pk}}" class="btn btn-primary"
+    >Update Recipe</a
+  >
+  <a href="/delete-recipe/{{recipe.pk}}" class="btn btn-danger"
+    >Delete Recipe</a
+  >
 </div>
 {% endblock content %}

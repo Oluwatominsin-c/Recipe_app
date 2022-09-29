@@ -15,7 +15,7 @@ def signup(request):
             form.save()
             username = form.cleaned_data.get("username")
             messages.success(request, f"Welcome {username}, you have succesfully registered!")
-            return redirect("/")
+            return redirect("/login/")
     else:
         form = SignUpForm()
 
