@@ -22,6 +22,9 @@ def about(request):
     return render(request, "recipe_app/about.html")
 
 
+def search(request):
+    return render(request, "recipe_app/search.html")
+
 class RecipeDetailView(DetailView):
     model = Recipe
 
