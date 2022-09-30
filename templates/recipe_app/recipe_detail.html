@@ -20,13 +20,14 @@
     height="150px"
   />
   <div class="card-body" style="text-align: center">
-    <p>{{ recipe.description }}</p>
     <em>Price</em>:<span style="color: crimson"> N{{recipe.price}}</span><br />
   </div>
 </div>
 <br />
-<hr />
+{% if user.is_authenticated %}
+<!-- only authenticted users can view recipe -->
 {% if object.owner == user %}
+<!-- only owners can update and delete -->
 <div class="m-2">
   <a href="/update-recipe/{{recipe.pk}}" class="btn btn-primary"
     >Update Recipe</a
@@ -35,4 +36,22 @@
     >Delete Recipe</a
   >
 </div>
-{% endif %} {% endblock content %}
+<!--  -->
+{% endif %}
+<!--  -->
+<hr />
+<h3>Recipe:</h3>
+<p>{{ recipe.description }}</p>
+<!--  -->
+{% else %}
+<!--  -->
+<hr />
+<h3>
+  <em
+    ><a href="/login/">Login</a> / <a href="/signup/">Signup</a> to view recipe
+  </em>
+</h3>
+<!--  -->
+{% endif %}
+<!--  -->
+{% endblock content %}
