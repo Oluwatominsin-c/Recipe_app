@@ -23,7 +23,32 @@ def about(request):
 
 
 def search(request):
-    return render(request, "recipe_app/search.html")
+    user = request.user
+    recipes = Recipe.objects.all()
+    result = []
+    context = {
+            "recipes": result,
+            "user": user,
+        }
+    if request.method == "POST":
+        search = request.POST["search"].strip()
+        print(search)
+        names = [recipe.name for recipe in recipes]
+        result = [name for name in names if search != "" if search.lower() in name.lower()]
+        print(result)
+        result = list(map(lambda x: Recipe.objects.get(name=x), result))
+        print(result)
+        context = {
+                "recipes": result,
+                "user": user,
+                "message": f"Found {len(result)} results for your search."
+            }
+        if len(result) <= 1:
+            context["message"] = f"Found {len(result)} result for your search."
+        return render(request, "recipe_app/search.html", context)
+    else:
+        return render(request, "recipe_app/search.html", context)
+
 
 class RecipeDetailView(DetailView):
     model = Recipe

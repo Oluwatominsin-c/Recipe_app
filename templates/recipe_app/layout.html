@@ -37,7 +37,7 @@
               <a class="nav-link active" aria-current="page" href="/">Home</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="about/">About</a>
+              <a class="nav-link" href="/about/">About</a>
             </li>
             {% if user.is_authenticated %}
 
@@ -61,12 +61,14 @@
           </span>
           {% endif %}
 
-          <form class="d-flex" role="search">
+          <form action="/search/" method="POST" class="d-flex" role="search">
+            {% csrf_token %}
             <input
               class="form-control mr-sm-2"
               type="search"
               placeholder="Search"
               aria-label="Search"
+              name="search"
             />
             <button
               class="btn btn-outline-primary my-2 my-sm-0"
